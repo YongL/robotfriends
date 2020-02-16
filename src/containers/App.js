@@ -1,14 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {changeSearchField, requestRobots} from '../redux/actoins';
-
-// import {robots} from './robots';
-import CardList from '../components/cardList'
-import Searchbox from '../components/searchbox';
-import Scroll from '../components/scroll';
-import './App.css';
-import ErrorBoundary from '../components/errorBoundary';
-import Header from '../components/header';
+import MainPage from '../components/MainPage';
 
 
 // parameter state comes from index.js provider store state(rootReducers)
@@ -30,28 +23,9 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 class App extends Component {
-  componentDidMount() {
-    this.props.onRequestRobots();
-  }
-
   render() {
-    const { robots, searchField, onSearchChange, isPending } = this.props;
-    const filteredRobots = robots.filter(robot => {
-      return robot.name.toLowerCase().includes(searchField.toLowerCase());
-    })
-    return (
-      <div className='tc'>
-        <Header />
-        <Searchbox searchChange={onSearchChange}/>
-        <Scroll>
-          { isPending ? <h1>Loading</h1> :
-            <ErrorBoundary>
-              <CardList robots={filteredRobots} />
-            </ErrorBoundary>
-          }
-        </Scroll>
-      </div>
-    );
+   
+   return (<MainPage  {...this.props}/>);
   }
 }
 

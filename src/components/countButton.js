@@ -2,8 +2,8 @@ import React, {PureComponent} from 'react';
 // use React PurComponent if only want to update when the props changed
 // use shouldUpdateComponent with causion for it might cause some unwanted logic
 class CountButton extends PureComponent {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {count: 0};
     }
 
@@ -24,10 +24,10 @@ class CountButton extends PureComponent {
     }
 
     render() {
-        console.log('CountButton');
+        console.log('CountButton', this.props.color);
         return (
             <div>
-                <button className='f1' onClick={this.updateCount}>{this.state.count}</button>
+                <button color={this.props.color} id="counter" className='f1' onClick={this.updateCount}>{this.state.count}</button>
                 <button className='f1' onClick={this.updateCountTo3}>update to 3</button>
             </div>
         );

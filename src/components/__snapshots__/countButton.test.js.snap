@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshots CountButton 1`] = `
+<div>
+  <button
+    className="f1"
+    color="red"
+    id="counter"
+    onClick={[Function]}
+  >
+    0
+  </button>
+  <button
+    className="f1"
+    onClick={[Function]}
+  >
+    update to 3
+  </button>
+</div>
+`;
